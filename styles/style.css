@@ -1,5 +1,391 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--text-color);
+  font-family: "IBM Plex Mono", sans-serif; /*почему не работает шрифт*/
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  background-image: var(--background-image);
+  background-color: var(--page-color, #000028);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.full {
+  display: grid;
+  padding: clamp(10px, 15px, 20px);
+  min-block-size: 100vh;
+}
+
+.header {
+  align-items: start;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-inline-end: 1px solid var(--bord);
+  border-block-start: 1px solid var(--bord);
+  inset-inline-end: clamp(10px, 15px, 20px);
+  inset-block-start: clamp(10px, 15px, 20px);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  inset-inline-start: clamp(10px, 15px, 20px);
+  inset-block-end: clamp(10px, 15px, 20px);
+  border-inline-start: 1px solid var(--bord);
+  border-block-end: 1px solid var(--bord);
+}
+
+.header_theme-menu-list {
+  display: flex;
+  gap: 10px;
+}
+
+.full_title {
+  color: var(--title-color);
+  font-size: clamp(116px, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 95.7px;
+  font-weight: 700;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.header_title {
+  display: flex;
+  color: var(--color-text);
+  background-color: var(--background-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+  margin-block: 55px;
+  block-size: 117px;
+}
+
+.rec {
+  position: absolute;
+  align-items: center;
+  gap: 10px;
+  top: 20px;
+  right: 25px;
+  visibility: var(--rec-vis);
+}
+
+.rec::after {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  block-size: 9px;
+  inline-size: 9px;
+  box-shadow: 0 0 2px 2px var(--background-color);
+  margin-inline-start: 10px;
+}
+
+.rec::before {
+  content: "REC";
+  color: var(--background-color);
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.header__theme-menu {
+  margin-block: 60px;
+  justify-self: end;
+  margin-block: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  color: var(--button-color);
+  background-color: transparent;
+  border: 1px solid transparent;
+  line-height: 18px;
+  padding: 3px 15px;
+  pointer-events: none;
+  display: flex;
+  justify-content: end;
+  font-size: 18px;
+  pointer-events: auto;
+}
+
+.header__theme-menu-button_active {
+  border-color: var(--button-color);
+  border: 1px solid;
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
+}
+
+.header__theme-menu-list {
+  list-style-type: none;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid;
+  border-color: var(--background-color-light);
+}
+
+.main {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
+.title {
+  color: var(--title);
+  line-height: 23.4px;
+  font-size: 18px;
+}
+
+.what-article-list {
+  list-style-type: none;
+  display: block;
+}
+
+.title-decor {
+  color: var(--color-text);
+  background-color: var(--background-color);
+  font-size: 18px;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.article-list {
+  list-style-type: none;
+  display: grid;
+  gap: 20px;
+}
+
+.picture-list-item {
+  object-fit: cover;
+  display: grid;
+  position: relative;
+  block-size: 100%;
+  inline-size: 100%;
+}
+/* не понимаю почему не работает разметка для изображений, хотя на макете отображается, что мешает*/
+.picture-list {
+  display: grid;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.section_picture {
+  display: grid;
+  gap: 10px;
+}
+
+.how_title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color3);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.shadow-decor {
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.footer-title {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 668px;
+}
+
+@media (width >= 768px) {
+  .header {
+    min-height: 100vh;
+  }
+  .rec {
+    right: 30px;
+  }
+
+  .full_title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-bottom: 100px;
+  }
+
+  .header_title {
+    display: flex;
+    block-size: 117px;
+    inline-size: 364px;
+    position: relative;
+    align-items: start;
+    margin-left: auto;
+    margin-bottom: 170px;
+    margin-right: 7px;
+  }
+
+  .header__theme-menu {
+    margin-top: 175px;
+    margin-right: 7px;
+  }
+  .main {
+    gap: 80px;
+    padding: 55px 20px;
+  }
+
+  .section {
+    display: grid;
+    grid-template-columns: clamp(236px, 33%, 314px) 1fr;
+    grid-template-rows: auto;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .title {
+    display: flex;
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+
+  .what-article-list {
+    grid-row: 2;
+    grid-column: 1/-1;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  .article-list {
+    grid-column: 2;
+  }
+
+  .picture-list {
+    margin-top: 20px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .picture-list-item {
+    display: grid;
+  }
+
+  .picture-list-item:nth-child(1) {
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+
+  .picture-list-item:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1/3;
+  }
+
+  .picture-list-item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2/5;
+  }
+
+  .picture-list-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .picture-list-item:nth-child(5) {
+    grid-column: 2/4;
+    grid-row: 3/5;
+  }
+
+  .footer {
+    align-items: start;
+    display: grid;
+    min-height: 1024px;
+    grid-template-rows: 1fr auto;
+  }
+
+  .why-title {
+    margin-top: -3px;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    display: flex;
+    align-items: start;
+    margin-top: 10px;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    padding-top: 0;
+    align-items: start;
+  }
+
+  .full_title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-self: start;
+    align-self: center;
+    margin-top: 230px;
+  }
+
+  .header_title {
+    display: block;
+    width: 50%;
+    block-size: 71px;
+    margin-bottom: 150px;
+    margin-top: 0px;
+  }
+  /* как переносить текст без <br>*/
+  .section {
+    column-gap: 30px;
+  }
+
+  .what-article-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    height: 768px;
+  }
 }
