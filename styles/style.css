@@ -113,6 +113,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  list-style-type: none;
 }
 
 .header__theme-menu-button {
@@ -134,10 +135,6 @@
 
 .header__theme-menu-button:focus {
   outline: 0;
-}
-
-.header__theme-menu-list {
-  list-style-type: none;
 }
 
 .header__theme-menu-button:hover {
