@@ -24,6 +24,7 @@
   align-items: start;
   display: grid;
   grid-template-rows: 1fr auto;
+  min-height: 100vh;
 }
 
 .decorated-zone {
@@ -104,7 +105,6 @@
 }
 
 .header__theme-menu {
-  margin-block: 60px;
   justify-self: end;
   margin-block: 65px;
 }
@@ -121,7 +121,6 @@
   border: 1px solid transparent;
   line-height: 18px;
   padding: 3px 15px;
-  pointer-events: none;
   display: flex;
   justify-content: end;
   font-size: 18px;
@@ -334,6 +333,7 @@
     display: grid;
     min-height: 1024px;
     grid-template-rows: 1fr auto;
+    min-height: 100vh;
   }
 
   .why-title {
