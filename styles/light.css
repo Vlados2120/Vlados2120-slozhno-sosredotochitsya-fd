@@ -5,32 +5,34 @@
 */
 
 .page.theme_light {
-  --text-color: var(--color8);
-  --title-color: var(--color5);
-  --background-color: var(--color6);
-  --background-color-light: var(--color11);
-  --color-text: var(--color8);
-  --page-color: var(--color4);
+  --text-color: var(--grey);
+  --title-color: var(--pink-middle);
+  --background-color: var(--pink-dark);
+  --background-color-light: var(--shadow-light);
+  --color-text: var(--grey);
+  --page-color: var(--pink-light);
   --background-image: url(../images/cover-image-light.png);
-  --shadow-color: var(--color2);
-  --title: var(--color8);
-  --bord: var(--color8);
-  --button-color: var(--color8);
+  --shadow-color: var(--pink-dark);
+  --title: var(--grey);
+  --bord: var(--grey);
+  --button-color: var(--grey);
   --rec-vis: hidden;
+  --background-color-light:var(--shadow-light);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --text-color: var(--color8);
-    --title-color: var(--color5);
-    --background-color: var(--color6);
-    --background-color-light: var(--color11);
-    --color-text: var(--color8);
-    --page-color: var(--color4);
+    --text-color: var(--grey);
+    --title-color: var(--pink-middle);
+    --background-color: var(--pink-dark);
+    --background-color-light: var(--shadow-light);
+    --color-text: var(--grey);
+    --page-color: var(--pink-light);
     --background-image: url(../images/cover-image-light.png);
-    --title: var(--color8);
-    --bord: var(--color8);
-    --button-color: var(--color8);
+    --title: var(--grey);
+    --bord: var(--grey);
+    --button-color: var(--grey);
     --rec-vis: hidden;
+    --background-color-light:var(--shadow-light);
   }
 }

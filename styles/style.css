@@ -16,7 +16,7 @@
 
 .full {
   display: grid;
-  padding: clamp(10px, 15px, 20px);
+  padding: clamp(10px, 0.029rem + 2.54vw, 20px);
   min-block-size: 100vh;
 }
 
@@ -24,7 +24,8 @@
   align-items: start;
   display: grid;
   grid-template-rows: 1fr auto;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 668px;
 }
 
 .decorated-zone {
@@ -38,8 +39,8 @@
   position: absolute;
   border-inline-end: 1px solid var(--bord);
   border-block-start: 1px solid var(--bord);
-  inset-inline-end: clamp(10px, 15px, 20px);
-  inset-block-start: clamp(10px, 15px, 20px);
+  inset-inline-end: clamp(10px, 0.028rem + 2.54vw, 20px);
+  inset-block-start: clamp(10px, 0.028rem + 2.54vw, 20px);
 }
 
 .decorated-zone::after {
@@ -47,8 +48,8 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  inset-inline-start: clamp(10px, 15px, 20px);
-  inset-block-end: clamp(10px, 15px, 20px);
+  inset-inline-start: clamp(10px, 0.028rem + 2.54vw, 20px);
+  inset-block-end: clamp(10px, 0.028rem + 2.54vw, 20px);
   border-inline-start: 1px solid var(--bord);
   border-block-end: 1px solid var(--bord);
 }
@@ -64,6 +65,7 @@
   line-height: 95.7px;
   font-weight: 700;
   text-shadow: 4px 4px 0 var(--shadow-color);
+  margin-left: 0px;
 }
 
 .header_title {
@@ -74,15 +76,14 @@
   font-weight: 700;
   line-height: 23.4px;
   margin-block: 55px;
-  block-size: 117px;
 }
 
 .rec {
   position: absolute;
   align-items: center;
   gap: 10px;
-  top: 20px;
-  right: 25px;
+  top: 11px;
+  right: 20px;
   visibility: var(--rec-vis);
 }
 
@@ -121,7 +122,7 @@
   background-color: transparent;
   border: 1px solid transparent;
   line-height: 18px;
-  padding: 3px 15px;
+  padding: 3px 12px;
   display: flex;
   justify-content: end;
   font-size: 18px;
@@ -131,6 +132,7 @@
 .header__theme-menu-button_active {
   border-color: var(--button-color);
   border: 1px solid;
+  pointer-events: none;
 }
 
 .header__theme-menu-button:focus {
@@ -142,7 +144,11 @@
   border-color: var(--background-color-light);
 }
 
-.main {
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid currentColor;
+}
+
+.information {
   display: grid;
   gap: 50px;
   padding: 40px 10px;
@@ -152,11 +158,6 @@
   color: var(--title);
   line-height: 23.4px;
   font-size: 18px;
-}
-
-.what-article-list {
-  list-style-type: none;
-  display: block;
 }
 
 .title-decor {
@@ -176,6 +177,11 @@
   gap: 20px;
 }
 
+.what-article-list {
+  display: grid;
+  gap: 20px;
+}
+
 .picture-list-item {
   object-fit: cover;
   display: grid;
@@ -183,7 +189,7 @@
   block-size: 100%;
   inline-size: 100%;
 }
-/* не понимаю почему не работает разметка для изображений, хотя на макете отображается, что мешает*/
+
 .picture-list {
   display: grid;
   gap: 10px;
@@ -195,11 +201,6 @@
   gap: 10px;
 }
 
-.how_title {
-  font-size: 18px;
-  font-weight: 400;
-}
-
 .link {
   text-decoration: none;
   color: var(--color3);
@@ -207,6 +208,14 @@
 
 .link:hover {
   text-decoration: underline;
+}
+
+.link:focus {
+  outline: 0;
+}
+
+.link:focus-visible {
+  outline: 1px solid currentColor;
 }
 
 .shadow-decor {
@@ -222,51 +231,56 @@
 
 .footer {
   display: flex;
-  min-height: 100%;
   align-items: center;
   justify-content: center;
-  height: 668px;
+  height: 100vh;
+}
+
+.paragraph {
+  display: grid;
+  gap: 10px;
 }
 
 @media (width >= 768px) {
-  .header {
-    min-height: 100vh;
-  }
   .rec {
+    top: 20px;
     right: 30px;
   }
 
   .full_title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    margin-bottom: 100px;
+    left: 0px;
+    margin-bottom: 105px;
+    padding-left: 0;
+  }
+
+  .header {
+    padding-left: 0;
   }
 
   .header_title {
     display: flex;
-    block-size: 117px;
-    inline-size: 364px;
+    width: 48%;
+    max-width: 490px;
     position: relative;
     align-items: start;
     margin-left: auto;
-    margin-bottom: 170px;
-    margin-right: 7px;
+    margin-bottom: 164px;
+    min-inline-size: 364px;
+    min-height: 117px;
   }
 
   .header__theme-menu {
-    margin-top: 175px;
-    margin-right: 7px;
+    margin-top: 170px;
   }
-  .main {
+
+  .information {
     gap: 80px;
-    padding: 55px 20px;
+    padding: 60px 20px;
   }
 
   .section {
-    display: grid;
     grid-template-columns: clamp(236px, 33%, 314px) 1fr;
-    grid-template-rows: auto;
-    margin-top: 0;
-    padding-top: 0;
   }
 
   .title {
@@ -285,65 +299,65 @@
   }
 
   .article-list {
-    grid-column: 2;
+    grid-column: 2; /*как убрать отступ между заголовками(без отрицательного отступа), что мешает*/
+    display: grid;
+  }
+
+  .section_picture {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .picture-list {
-    margin-top: 20px;
     gap: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(4, 1fr);
+    max-height: 780px;
   }
 
-  .picture-list-item {
-    display: grid;
-  }
-
-  .picture-list-item:nth-child(1) {
-    grid-column: 1/3;
+  .sky {
     grid-row: 1;
+    grid-column: 1/3;
   }
 
-  .picture-list-item:nth-child(2) {
-    grid-column: 3;
+  .ice {
     grid-row: 1/3;
+    grid-column: 3;
   }
 
-  .picture-list-item:nth-child(3) {
+  .music {
     grid-column: 1;
     grid-row: 2/5;
   }
 
-  .picture-list-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .picture-list-item:nth-child(5) {
+  .street {
     grid-column: 2/4;
     grid-row: 3/5;
   }
 
-  .footer {
-    align-items: start;
-    display: grid;
-    min-height: 1024px;
-    grid-template-rows: 1fr auto;
-    min-height: 100vh;
+  .book {
+    grid-column: 2;
+    grid-row: 2;
   }
 
-  .why-title {
-    margin-top: -3px;
+  .how_list {
+    display: grid;
+    gap: 10px;
   }
 }
 
 @media (width >= 1024px) {
   .header__theme-menu {
     justify-self: center;
-    display: flex;
+    margin-inline-start: 20px;
+    margin-block-start: 0;
+    margin-block-end: 215px;
     align-items: start;
-    margin-top: 10px;
+  }
+
+  .header_title {
+    min-height: 71px;
   }
 
   .header__theme-menu-list {
@@ -359,19 +373,13 @@
     grid-template-columns: auto 1fr;
     justify-self: start;
     align-self: center;
-    margin-top: 230px;
+    margin-top: 75px;
+    margin-bottom: 75px;
   }
 
   .header_title {
     display: block;
-    width: 50%;
-    block-size: 71px;
-    margin-bottom: 150px;
-    margin-top: 0px;
-  }
-  /* как переносить текст без <br>*/
-  .section {
-    column-gap: 30px;
+    min-width: 491px;
   }
 
   .what-article-list {
@@ -383,6 +391,11 @@
   .footer {
     display: flex;
     justify-content: center;
-    height: 768px;
+    min-height: 768px;
+  }
+
+  .picture-list {
+    gap: 20px;
+    min-height: 1048px;
   }
 }

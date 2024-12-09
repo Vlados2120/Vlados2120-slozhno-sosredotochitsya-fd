@@ -1,31 +1,31 @@
 .page.theme_dark {
-  --text-color: var(--color3);
-  --title-color: var(--color1);
-  --background-color: var(--color2);
-  --background-color-light: var(--color9);
-  --color-text: var(--color7);
-  --page-color: var(--color7);
+  --text-color: var(--color-pink-text);
+  --title-color: var(--purple-color);
+  --background-color: var(--purple-color-bg);
+  --background-color-light: var(--purple-color-bg-40);
+  --color-text: var(--black);
+  --page-color: var(--black);
   --background-image: url(../images/cover-image-dark.png);
-  --shadow-color: var(--color2);
-  --title: var(--color2);
-  --bord: var(--color2);
-  --button-color: var(--color2);
+  --shadow-color: var(--purple-color-bg);
+  --title: var(--purple-color-bg);
+  --bord: var(--purple-color-bg);
+  --button-color: var(--purple-color-bg);
   --rec-vis: visible;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: var(--color3);
-    --title-color: var(--color1);
-    --background-color: var(--color2);
-    --background-color-light: var(--color9);
-    --color-text: var(--color7);
-    --page-color: var(--color7);
+    --text-color: var(--color-pink-text);
+    --title-color: var(--purple-color);
+    --background-color: var(--purple-color-bg);
+    --background-color-light: var(--purple-color-bg-40);
+    --color-text: var(--black);
+    --page-color: var(--black);
     --background-image: url(../images/cover-image-dark.png);
-    --shadow-color: var(--color2);
-    --title: var(--color2);
-    --bord: var(--color2);
-    --button-color: var(--color2);
+    --shadow-color: var(--purple-color-bg);
+    --title: var(--purple-color-bg);
+    --bord: var(--purple-color-bg);
+    --button-color: var(--purple-color-bg);
     --rec-vis: visible;
   }
 }
