@@ -2,7 +2,7 @@
 
 .page {
   color: var(--text-color);
-  font-family: "IBM Plex Mono", sans-serif; /*почему не работает шрифт*/
+  font-family: "IBM Plex Mono", sans-serif; 
   font-size: 18px;
   font-weight: 400;
   line-height: 23.4px;
@@ -15,7 +15,6 @@
 }
 
 .full {
-  display: grid;
   padding: clamp(10px, 0.029rem + 2.54vw, 20px);
   min-block-size: 100vh;
 }
@@ -23,7 +22,7 @@
 .header {
   align-items: start;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto 1fr;
   height: 100vh;
   min-height: 668px;
 }
@@ -39,8 +38,8 @@
   position: absolute;
   border-inline-end: 1px solid var(--bord);
   border-block-start: 1px solid var(--bord);
-  inset-inline-end: clamp(10px, 0.028rem + 2.54vw, 20px);
-  inset-block-start: clamp(10px, 0.028rem + 2.54vw, 20px);
+  top:10px;
+  right: 10px;
 }
 
 .decorated-zone::after {
@@ -48,10 +47,10 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  inset-inline-start: clamp(10px, 0.028rem + 2.54vw, 20px);
-  inset-block-end: clamp(10px, 0.028rem + 2.54vw, 20px);
   border-inline-start: 1px solid var(--bord);
   border-block-end: 1px solid var(--bord);
+  bottom:10px;
+  left: 10px;
 }
 
 .header_theme-menu-list {
@@ -66,6 +65,8 @@
   font-weight: 700;
   text-shadow: 4px 4px 0 var(--shadow-color);
   margin-left: 0px;
+  grid-row: 2;
+
 }
 
 .header_title {
@@ -76,34 +77,35 @@
   font-weight: 700;
   line-height: 23.4px;
   margin-block: 55px;
+  grid-row: 3;
+  align-self: end;
 }
 
-.rec {
-  position: absolute;
-  align-items: center;
-  gap: 10px;
-  top: 11px;
-  right: 20px;
-  visibility: var(--rec-vis);
-}
+.rec { 
+  position: absolute; 
+  top: 11px; 
+  right: 20px; 
+  visibility: var(--rec-vis); 
+} 
+ 
+.rec::after { 
+  content: ""; 
+  display: inline-block; 
+  border-radius: 50%; 
+  background-color: var(--background-color); 
+  block-size: 9px; 
+  inline-size: 9px; 
+  box-shadow: 0 0 2px 2px var(--background-color); 
+  margin-inline-start: 10px; 
+} 
+ 
+.rec::before { 
+  content: "REC"; 
+  color: var(--background-color); 
+  font-size: 18px; 
+  line-height: 25px; 
+} 
 
-.rec::after {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  background-color: var(--background-color);
-  block-size: 9px;
-  inline-size: 9px;
-  box-shadow: 0 0 2px 2px var(--background-color);
-  margin-inline-start: 10px;
-}
-
-.rec::before {
-  content: "REC";
-  color: var(--background-color);
-  font-size: 18px;
-  line-height: 25px;
-}
 
 .header__theme-menu {
   justify-self: end;
@@ -202,12 +204,18 @@
 }
 
 .link {
-  text-decoration: none;
-  color: var(--color3);
+  text-decoration: none; 
+  position: relative;
 }
 
-.link:hover {
-  text-decoration: underline;
+.link:hover::after {
+  content: ""; 
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
 }
 
 .link:focus {
@@ -234,6 +242,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  min-height: 668px;
 }
 
 .paragraph {
@@ -241,16 +250,28 @@
   gap: 10px;
 }
 
+.how_title{
+  font-weight: 400;
+}
+
 @media (width >= 768px) {
   .rec {
+    right: 28px;
     top: 20px;
-    right: 30px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
   }
 
   .full_title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    left: 0px;
-    margin-bottom: 105px;
     padding-left: 0;
   }
 
@@ -267,7 +288,6 @@
     margin-left: auto;
     margin-bottom: 164px;
     min-inline-size: 364px;
-    min-height: 117px;
   }
 
   .header__theme-menu {
@@ -279,8 +299,14 @@
     padding: 60px 20px;
   }
 
-  .section {
-    grid-template-columns: clamp(236px, 33%, 314px) 1fr;
+  .section_why {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section_how {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
   }
 
   .title {
@@ -299,7 +325,7 @@
   }
 
   .article-list {
-    grid-column: 2; /*как убрать отступ между заголовками(без отрицательного отступа), что мешает*/
+    grid-column: 2; 
     display: grid;
   }
 
@@ -312,8 +338,8 @@
     gap: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    max-height: 780px;
+    grid-template-rows: repeat(3, auto);
+    min-height: 780px;
   }
 
   .sky {
@@ -345,6 +371,11 @@
     display: grid;
     gap: 10px;
   }
+
+  .section-what{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (width >= 1024px) {
@@ -357,7 +388,6 @@
   }
 
   .header_title {
-    min-height: 71px;
     display: block;
     min-width:491px;
   }
@@ -392,7 +422,14 @@
   }
 
   .picture-list {
-    gap: 20px;
     min-height: 1048px;
+  }
+
+  .section_why{
+    column-gap: 10px;
+  }
+  
+  .section_how{
+    column-gap: 10px;
   }
 }

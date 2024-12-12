@@ -34,5 +34,6 @@
     --button-color: var(--grey);
     --rec-vis: hidden;
     --background-color-light:var(--shadow-light);
+    --shadow-color: var(--pink-dark);
   }
 }
