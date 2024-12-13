@@ -252,10 +252,9 @@
   font-weight: 400;
 }
 
-.advice_title{
+.advice_title {
   margin-bottom: 20px;
 }
-
 
 @media (width >= 768px) {
   .rec {
@@ -380,10 +379,9 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .advice_title{
+  .advice_title {
     margin-bottom: 20px;
   }
-
 }
 
 @media (width >= 1024px) {
