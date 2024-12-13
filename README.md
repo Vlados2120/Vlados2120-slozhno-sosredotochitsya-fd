@@ -1,1 +1,1 @@
-https://github.com/Vlados2120/Vlados2120-slozhno-sosredotochitsya-fd
+https://github.com/Vlados2120/slozhno-sosredotochitsya-fd
