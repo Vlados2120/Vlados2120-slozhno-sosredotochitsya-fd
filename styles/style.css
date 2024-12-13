@@ -252,6 +252,11 @@
   font-weight: 400;
 }
 
+.advice_title{
+  margin-bottom: 20px;
+}
+
+
 @media (width >= 768px) {
   .rec {
     right: 28px;
@@ -374,6 +379,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .advice_title{
+    margin-bottom: 20px;
+  }
+
 }
 
 @media (width >= 1024px) {
